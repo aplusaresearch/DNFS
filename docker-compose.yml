@@ -1,6 +1,6 @@
 services:
   web:
-    image: nginx
+    image: nginx:latest
     container_name: nginx
     volumes:
       - ./nginx/nginx-https.conf:/tmp/nginx.conf
