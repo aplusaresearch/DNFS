@@ -9,12 +9,14 @@ This is a simple example of how to use Nginx as a reverse proxy with SSL for a F
 On a linux machine, you can create a self-signed certificate using the following command:
 
 ```bash
-openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout ./ssl/server.key -out ./ssl/server.crt
+openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout server.key -out server.crt
 ```
  Then, create a pem file:
 ```bash 
-    openssl dhparam -out ./ssl/server.pem 4096
+    openssl dhparam -out server.pem 4096
 ```
+
+Place them in the `ssl` folder.
 
 ### Update the conf files with your domain
 
@@ -35,7 +37,9 @@ docker compose up -d
 
 ### Access the app
 
-Open your browser and go to `https://localhost`.
+Open your browser and go to [https://localhost](https://localhost).  
+Tot test the HTTP version, go to  [http://localhost](http://localhost).  
+It should be redirecting to the HTTPS version. If not, clear your browser cache.
 
 ### Stop the project
 
